@@ -6,6 +6,7 @@ Code for Scraping AZLyrics for Doja Cat Songs
 import urllib.request as urllib2
 from bs4 import BeautifulSoup
 import pandas as pd
+import os
 import re
 from unidecode import unidecode
 
@@ -13,13 +14,22 @@ from unidecode import unidecode
 # Create Datafame to store Lyrics
 #################################
 
-# specify the url
-webpage = "https://www.azlyrics.com/d/dojacat.html"
-file = "songs.csv"
-songs = pd.read_csv(file)
+os.chdir("/Users/emeliamavis/703/doja-cat-lyric-generator/")
 
-# query the website and return the html
-page = requests.get(webpage)
+# grab the pre-defined dataframe of song titles
+file = f"{os.getcwd()}/doj_songs.csv"
+songs_df = pd.read_csv(file)
 
-# parse the html using beautiful soup
-soup = BeautifulSoup(page.content, "html.parser")
+
+# specify the url (with fomatting brackets)
+webpage = "https://www.azlyrics.com/d/dojacat/{}.html"
+
+for index, row in songs_df.iterrows():
+
+    # grab each song's webpage
+    page = urllib2.urlopen(webpage.format(row[1].replace(" ", "")))
+
+    # parse the html using beautiful soup
+    soup = BeautifulSoup(page, "html.parser")
+
+    print(page)
