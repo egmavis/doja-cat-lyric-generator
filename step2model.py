@@ -61,7 +61,7 @@ def stupid_backoff(sentence, corpus, n, data, deterministic):
 
 def finish_sentence(sentence, corpus, n, deterministic=False):
     # punctuation = [".", "!", "?"]
-    while len(sentence) < 200:  # and sentence[-1] not in punctuation:
+    while len(sentence) < 100:  # and sentence[-1] not in punctuation:
         data = build_dict(sentence, corpus, n)
         if data == {}:
             data = stupid_backoff(sentence, corpus, n, data, deterministic)
@@ -79,8 +79,8 @@ def finish_sentence(sentence, corpus, n, deterministic=False):
 
 
 def main():
-    sentence = ["if", "she", "won't"]
-    n = 8
+    sentence = ["u", "go", "to", "town", "go", "down"]
+    n = 20
     songs = pd.read_csv("~/703/doja-cat-lyric-generator/doj_songs.csv")
 
     # Tokenize Data
