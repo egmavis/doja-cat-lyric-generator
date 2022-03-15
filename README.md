@@ -1,15 +1,4 @@
 # Doja Cat Lyric Generator
-A machine learning, LSTM model to generate Doja Cat song lyrics
-Things I had to learn and utilize for this project:
-- beautiful soup
-- keras
+A machine learning, LSTM model to generate Doja Cat song lyrics. 
 
-## 1. Getting the Data
-Use BeautifulSoup to scrape lyric website
-
-## 2. Data Preprocessing
-Character-level model
-
-## 3. Building the Model
-
-## 4. Generating Lyrics
+This is a very high-level, basic introduction into how machine learning libraries can be used for NLP. The methods used in this project are cited from the repository linked [here](https://github.com/nikolaevra/drake-lyric-generator).
